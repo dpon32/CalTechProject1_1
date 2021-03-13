@@ -6,7 +6,7 @@ pipeline {
         stage('Build Container') {
             steps {
                 script {
-                    sh "docker build -t dpontius32/apache2:1.0.0"
+                    sh "docker build -t dpontius32/apache2:1.0.0 ."
                 }
             }
         }
