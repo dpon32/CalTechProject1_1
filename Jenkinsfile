@@ -1,12 +1,26 @@
 #!/bin/env groovy
 
 pipeline {
+    environment{
+        registry = "dpontius32/apache2"
+        registryCredential = 'dpontius32'
+        dockerImage = ''
+    }
     agent any
     stages {
         stage('Build Container') {
             steps {
                 script {
-                    sh "docker build -t dpontius32/apache2:1.0.0 ."
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
+
+        stage('Deploy to dockerhub') {
+            steps {
+                script {
+                    docker.withRegistry('', registryCredential)
+                    dockerImage.push()
                 }
             }
         }
