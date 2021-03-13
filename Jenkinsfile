@@ -42,7 +42,7 @@ pipeline {
             }
         }
 
-        stae('Run Apache container') {
+        stage('Run Apache container') {
             steps {
                 script {
                     dockerImage.run()
