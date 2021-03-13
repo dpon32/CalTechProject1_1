@@ -10,12 +10,13 @@ pipeline {
                     sh "docker build -t dpontius32/apache2:1.0.0"
                 }
             }
-
         }
+    }
+}
 
-        stage('Push to dockerhub') {
+ /*       stage('Push to dockerhub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]){
+                withCredentials([usernamePassword(credentialsId: 'dpontius32', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]){
                 script {
                     sh "docker login -u ${env.dockerUsername} -p ${env.dockerPassword}"
                     sh "docker push dpontius32/apache2:1.0"
@@ -40,4 +41,4 @@ pipeline {
         }
     }
 }
-}
+}*/
