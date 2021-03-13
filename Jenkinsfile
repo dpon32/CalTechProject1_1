@@ -1,0 +1,5 @@
+#!/bin/env groovy
+
+pipeline {
+
+}
