@@ -1,13 +1,14 @@
 #!/bin/env groovy
 
 pipeline {
-    agent none
-    stages {
+    agent {
+        stages {
 
-        stage('Build Container') {
-            steps {
-                script {
-                    sh "docker build -t dpontius32/apache2:1.0.0"
+            stage('Build Container') {
+                steps {
+                    script {
+                        sh "docker build -t dpontius32/apache2:1.0.0"
+                    }
                 }
             }
         }
