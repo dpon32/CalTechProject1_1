@@ -25,7 +25,7 @@ pipeline {
     stage('Remove Apache2 Docker Image') {
         steps {
             script {
-                sh "docker rmi $(docker images |grep 'apache2')"
+                sh "docker rmi \$(docker images |grep 'apache2')"
             }
         }
     }
