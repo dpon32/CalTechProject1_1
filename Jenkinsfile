@@ -25,6 +25,30 @@ pipeline {
                 }
             }
         }
+
+        stage('Remove image from agent') {
+            steps {
+                script {
+                    sh "docker rmi $registry:$BUILD_NUMBER"
+                }
+            }
+        }
+
+        stage('Get latest image from Dockerhub') {
+            steps {
+                script {
+                    dockerImage.pull()
+                }
+            }
+        }
+
+        stae('Run Apache container') {
+            steps {
+                script {
+                    dockerImage.run()
+                }
+            }
+        }
     }
 }
 
