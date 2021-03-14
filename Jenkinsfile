@@ -45,7 +45,7 @@ pipeline {
         stage('Run Apache container') {
             steps {
                 script {
-                    sh "docker run -it $registry:$BUILD_NUMBER"
+                    sh "docker run $registry:$BUILD_NUMBER"
                 }
             }
         }
