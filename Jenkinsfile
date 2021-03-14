@@ -45,7 +45,7 @@ pipeline {
         stage('Run Apache container') {
             steps {
                 script {
-                    dockerImage.withRun(-it)
+                    dockerImage.run(-it)
                 }
             }
         }
